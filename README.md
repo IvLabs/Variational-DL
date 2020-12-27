@@ -1,4 +1,4 @@
 # Variational-DL
 ### Contributors 
-* [Pulkit Mathur](www.github.com/mathurpulkit)
-* [Khurshed Fitter](www.github.com/GlazeDonuts)
+* [Pulkit Mathur](github.com/mathurpulkit)
+* [Khurshed Fitter](github.com/GlazeDonuts)
