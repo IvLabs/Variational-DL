@@ -6,4 +6,5 @@
 * [Sibam Parida](https://github.com/sibam23)
 * [Sushant Jha](https://github.com/sushantjha78)
 * [Vignesh Srinivas](https://github.com/vignesh-creator)
+* [Kalyani Sainis](https://github.com/Kals-13)
 * [Khurshed Fitter](https://github.com/GlazeDonuts)
