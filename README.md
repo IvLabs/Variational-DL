@@ -3,4 +3,5 @@
 * [Pulkit Mathur](https://github.com/GlazeDonuts)
 * [Atharva Kathale](https://github.com/Atharva-K12)
 * [Appari Shanti](https://github.com/AppariShanti)
+* [Sibam Parida](https://github.com/sibam23)
 * [Khurshed Fitter](https://github.com/GlazeDonuts)
