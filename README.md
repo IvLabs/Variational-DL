@@ -1,10 +1,13 @@
 # Variational-DL
 
-#### Variational Deep Learning is a method of deep learning where we use Neural Networks to generate data, instead of drawing conclusions from it.
+Variational Deep Learning is a method of deep learning where we use Neural Networks to generate data, instead of drawing conclusions from it.
 
-#### We have currrently implemented two Autoencoders:
-* [Vanilla Autoencoder](vanilla/README.md) on MNIST dataset.
-* [Denoising Autoencoder](denoise/README.md) on MNIST dataset.
+We have currrently implemented two Autoencoders:
+- [x] [Vanilla Autoencoder](vanilla/README.md) on MNIST dataset.
+- [x] [Denoising Autoencoder](denoise/README.md) on MNIST dataset.
+- [ ] Sparse Autoencoder
+- [ ] Contractive Autoencoder
+- [ ] Variational Autoencoder
 
 ### Contributors: 
 * [Pulkit Mathur](https://github.com/mathurpulkit)
