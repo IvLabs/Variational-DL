@@ -24,6 +24,7 @@ We have implemented the Denoising Autoencoder using PyTorch. You need to install
 * pytorch(for model training)
 * matplotlib(for plotting graphs and images)
 * tqdm(for showing progress bars)
+
 Our model has already been trained on the MNIST dataset. To run our code, Open Terminal and navigate to this directory and run:
 ```
 python denoise.py
