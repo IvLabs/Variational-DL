@@ -30,12 +30,21 @@ Hyperparameters used for the Vanilla Autoencoder Training:
 
 | Parameters|  Values |
 | -------- | -------- |
-| Learning Rate | 8 x 10<sup>-3</sup>  | 
+| Learning Rate | 9 x 10<sup>-3</sup>  | 
 | Epochs | 20 |
 | Minibatch Size | 1200 |
 | Optimizer | Adam |
 | Loss Function | BCE Loss |  
 <br/>
+
+Our Training and Testing Losses were:
+
+| Type | Value |
+| -------- | -------- |
+| Training Loss | 0.0824 |
+| Testing Loss | 0.0796 |
+<br/>
+
 Our Input and Output on the Test set was:
 
 ![Output Image](output1.jpg)

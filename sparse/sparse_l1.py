@@ -12,9 +12,9 @@ import loader  # module for dataset loading
 device = torch.device("cuda" if torch.cuda.is_available() else 'cpu')
 seed = 42  # seed is used to ensure that we get the same output every time
 torch.manual_seed(seed)
-batch_size = 600  # This will give 100 batches per epoch as the train set is 60k images
+batch_size = 1200  # This will give 100 batches per epoch as the train set is 60k images
 epochs = 20
-learning_rate = 6e-3
+learning_rate = 9e-3
 model_file = 'sparse_l1.pth'  # Path where the model is saved/loaded
 lamda = 4e-5 
 
@@ -149,6 +149,8 @@ def main():
             batch_features = batch_features[0]
             test_examples = batch_features.to(device)
             reconstruction = model(test_examples)
+            test_loss = nn.functional.binary_cross_entropy(reconstruction, test_examples)
+            print("Test Loss is: ", test_loss.item())
             break
     try:  # Plots a graph if the training was done, else skips it
         plt.xlabel('Number of epochs')

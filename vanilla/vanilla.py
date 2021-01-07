@@ -13,7 +13,7 @@ seed = 42  # seed is used to ensure that we get the same output every time
 torch.manual_seed(seed)
 batch_size = 1200  # This will give 50 batches per epoch as the train set is 60k images
 epochs = 20
-learning_rate = 8e-3
+learning_rate = 9e-3
 model_file = 'vanilla.pth'  # Path where the model is saved/loaded 
 
 class AE(nn.Module):
@@ -108,6 +108,8 @@ def main():
             batch_features = batch_features[0]
             test_examples = batch_features.to(device)
             reconstruction = model(test_examples)
+            test_loss = nn.functional.binary_cross_entropy(reconstruction, test_examples)
+            print("Test Loss is: ", test_loss.item())
             break
     try:  # Plots a graph if the training was done, else skips it
         plt.xlabel('Number of epochs')

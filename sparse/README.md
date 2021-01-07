@@ -47,9 +47,9 @@ Hyperparameters used for the KL Divergence Loss Training:
 
 | Parameters|  Values |
 | -------- | -------- |
-| Learning Rate | 8 x 10<sup>-3</sup>  | 
+| Learning Rate | 9 x 10<sup>-3</sup>  | 
 | Epochs | 20 |
-| Minibatch Size | 600 |
+| Minibatch Size | 1200 |
 | Optimizer | Adam |
 | Loss Function | BCE Loss |
 | Sparsity parameter(ρ) | 0.08 |
@@ -60,14 +60,22 @@ Hyperparameters used for the L1 Loss Training:
 
 | Parameters|  Values |
 | -------- | -------- |
-| Learning Rate | 6 x 10<sup>-3</sup>  | 
+| Learning Rate | 9 x 10<sup>-3</sup>  | 
 | Epochs | 20 |
-| Minibatch Size | 600 |
+| Minibatch Size | 1200 |
 | Optimizer | Adam |
 | Loss Function | BCE Loss |
 | Lambda | 4 x 10<sup>-5</sup> |
 <br/>
 You can train a new model from scratch or load our pre-trained model to test.
+
+Our Training and Testing Losses were:
+
+| Type | KL Divergence Loss | L1 Loss |
+| -------- | -------- | -------- |
+| Training Loss | 0.0862 | 0.0809 |
+| Testing Loss | 0.0771 | 0.07757 |
+<br/>
 
 Our Input and Output on the Test set was:
 
