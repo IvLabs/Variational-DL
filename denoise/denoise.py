@@ -12,9 +12,9 @@ import loader  # module for dataset loading
 device = torch.device("cuda" if torch.cuda.is_available() else 'cpu')
 seed = 42  # seed is used to ensure that we get the same output every time
 torch.manual_seed(seed)
-batch_size = 600  # This will give 100 batches per epoch as the train set is 60k images
+batch_size = 1200  # This will give 50 batches per epoch as the train set is 60k images
 epochs = 20
-learning_rate = 5e-3
+learning_rate = 8e-3
 noise_val = 0.2  # Adjusts the noise value 
 model_file = 'denoise.pth'  # Path where the model is saved/loaded 
 
@@ -102,12 +102,15 @@ def main():
     model = AE().to(device)  # Neural Network is declared
     optimizer = optim.Adam(model.parameters(), lr=learning_rate)
     criterion = nn.BCELoss()
-    train_need = input("Press l to load model, t to train model: ").lower()
+    train_need = input("Press l to load model, t to train model, tl to load and train model: ").lower()
     # Asks user whether to load saved model or train from scratch
     if train_need == 't':
         loss_list = train_model(model, optimizer, criterion)
     elif train_need == 'l':
         model.load_state_dict(torch.load(model_file))
+    elif train_need == 'tl':
+        model.load_state_dict(torch.load(model_file))
+        loss_list = train_model(model, optimizer, criterion)
     test_loader = loader.test_loader_fn(batch_size)  # loads the testing dataset
     test_examples = None
 
@@ -118,6 +121,8 @@ def main():
             reconstruction = model(test_examples)
             break
     try:  # Plots a graph if the training was done, else skips it
+        plt.xlabel('Number of epochs')
+        plt.ylabel('Loss Value')
         plt.plot(range(len(loss_list)),loss_list)
     except:
         pass
@@ -139,7 +144,7 @@ def main():
             ax.get_xaxis().set_visible(False)
             ax.get_yaxis().set_visible(False)
         plt.show()
-    if train_need == 't':
+    if train_need == 't' or train_need == 'tl':
         # If the model was trained, it asks whether or not to save the model
         save_status=input("Enter s to save the model: ").lower()
         if save_status=='s':

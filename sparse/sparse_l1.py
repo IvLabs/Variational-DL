@@ -3,6 +3,7 @@ import numpy as np
 import torch
 import torch.nn as nn
 import torch.optim as optim
+import torch.nn.functional as F
 import time
 import os
 from tqdm import tqdm  # for showing progess bars during training
@@ -11,10 +12,11 @@ import loader  # module for dataset loading
 device = torch.device("cuda" if torch.cuda.is_available() else 'cpu')
 seed = 42  # seed is used to ensure that we get the same output every time
 torch.manual_seed(seed)
-batch_size = 1200  # This will give 50 batches per epoch as the train set is 60k images
+batch_size = 600  # This will give 100 batches per epoch as the train set is 60k images
 epochs = 20
-learning_rate = 8e-3
-model_file = 'vanilla.pth'  # Path where the model is saved/loaded 
+learning_rate = 6e-3
+model_file = 'sparse_l1.pth'  # Path where the model is saved/loaded
+lamda = 4e-5 
 
 class AE(nn.Module):
     '''
@@ -22,35 +24,63 @@ class AE(nn.Module):
     '''
     def __init__(self):
         super().__init__()
-        self.encoder=nn.Sequential(
-            nn.Conv2d(1,8,3,stride=1),
-            nn.ReLU(),
-            nn.Conv2d(8,16,5,stride=1),
-            nn.ReLU(),
-            nn.Conv2d(16,32,5,stride=2),
-            nn.ReLU(),
-            nn.MaxPool2d(2, 2),
-        )  # The encoder network
-        self.decoder=nn.Sequential(
-            nn.ConvTranspose2d(32,16,3, stride=2),
-            nn.ReLU(),
-            nn.ConvTranspose2d(16,8,5, stride=2),
-            nn.ReLU(),
-            nn.ConvTranspose2d(8,1,8, stride=1),
-            nn.Sigmoid(),
-        )  # The decoder network
-
+        self.enc1 = nn.Conv2d(1,8,3,stride=1) 
+        self.enc2 = nn.Conv2d(8,16,5,stride=1)
+        self.enc3 = nn.Conv2d(16,32,5,stride=2)
+        self.bottle = nn.MaxPool2d(2, 2)
+        # The encoder network
+        self.dec1 = nn.ConvTranspose2d(32,16,3, stride=2)
+        self.dec2 = nn.ConvTranspose2d(16,8,5, stride=2)
+        self.dec3 = nn.ConvTranspose2d(8,1,8, stride=1)
+        # The decoder network
     def forward(self, features):
-        x = self.encoder(features.float())
-        return self.decoder(x)
+        x = F.relu(self.enc1(features.float()))
+        x = F.relu(self.enc2(x))
+        x = F.relu(self.enc3(x))
+        x = self.bottle(x)
+        x = F.relu(self.dec1(x))
+        x = F.relu(self.dec2(x))
+        x = torch.sigmoid(self.dec3(x))
+        return x
     
     def encode(self, features):
         # Encodes the input to a smaller size
-        return self.encoder(features.float())
+        x = F.relu(self.enc1(features.float()))
+        x = F.relu(self.enc2(x))
+        x = F.relu(self.enc3(x))
+        x = self.bottle(x)
+        return x
 
     def decode(self, features):
         # Decodes the given input back to its original size
-        return self.decoder(features.float())
+        x = F.relu(self.dec1(features.float()))
+        x = F.relu(self.dec2(x))
+        x = torch.sigmoid(self.dec3(x))
+        return x
+    
+    def forward_with_layers(self, features):
+        '''
+        Used during training, returns activations of hidden layers as a list along with output.
+        Takes one parameter:
+        features: The input to the neural network
+        '''
+        ret_act = []
+        a1 = F.relu(self.enc1(features.float()))
+        ret_act.append(a1)
+        a2 = F.relu(self.enc2(a1))
+        ret_act.append(a2)
+        a3 = F.relu(self.enc3(a2))
+        ret_act.append(a3)
+        a4 = self.bottle(a3)
+        ret_act.append(a4)
+        a5 = F.relu(self.dec1(a4))
+        ret_act.append(a5)
+        a6 = F.relu(self.dec2(a5))
+        ret_act.append(a6)
+        ans = torch.sigmoid(self.dec3(a6))
+        return ans, ret_act
+
+
 
 def clrscr():  # used for clearing the screen after every move
     if os.name == "posix":
@@ -60,6 +90,17 @@ def clrscr():  # used for clearing the screen after every move
         # DOS/Windows
         os.system('cls')
 
+def l1_loss(layers):
+    '''
+    Calculates the L1 loss of the hidden layers passed as a list.
+    Requires one parameter:
+    layers: Layers passed as a list of torch tensors.
+    '''
+    #L1 Loss function 
+    loss = 0
+    for i in layers:
+        loss += torch.mean(torch.abs(i))
+    return lamda*loss
 
 def train_model(model, optimizer, criterion):
     '''
@@ -75,8 +116,8 @@ def train_model(model, optimizer, criterion):
         for batch_features, _ in tqdm(train_loader):  # Looping for every batch
             batch_features = batch_features.to(device)
             optimizer.zero_grad()  # Model training starts here
-            outputs = model(batch_features).to(device)
-            train_loss = criterion(outputs, batch_features.to(device))
+            outputs, layers = model.forward_with_layers(batch_features)
+            train_loss = criterion(outputs, batch_features.to(device)) + l1_loss(layers)
             train_loss.backward()
             optimizer.step()
             loss += train_loss.item()
@@ -92,7 +133,7 @@ def main():
     optimizer = optim.Adam(model.parameters(), lr=learning_rate)
     criterion = nn.BCELoss()
     train_need = input("Press l to load model, t to train model, tl to load and train model: ").lower()
-    # Asks user whether to load saved model or train from scratch, or train the saved loss
+    # Asks user whether to load saved model or train from scratch
     if train_need == 't':
         loss_list = train_model(model, optimizer, criterion)
     elif train_need == 'l':

@@ -31,7 +31,18 @@ python denoise.py
 ```
 You can train a new model from scratch or load our pre-trained model to test.
 
-Our output on the MNIST Test set was:
+Hyperparameters used for the Denoising Autoencoder Training:
+
+| Parameters|  Values |
+| -------- | -------- |
+| Learning Rate | 8 x 10<sup>-3</sup>  | 
+| Epochs | 20 |
+| Minibatch Size | 1200 |
+| Optimizer | Adam |
+| Loss Function | BCE Loss |
+| Mean of the Gaussian Noise Addition | 0.2 |
+<br/>
+Our Input and Output on the Test set was:
 
 ![Output Image](output1.jpg)
 
