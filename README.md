@@ -1,4 +1,20 @@
 # Variational-DL
-### Contributors 
-* [Pulkit Mathur](www.github.com/mathurpulkit)
-* [Khurshed Fitter](www.github.com/GlazeDonuts)
+
+Variational Deep Learning is a method of deep learning where we use Neural Networks to generate data, instead of drawing conclusions from it.
+
+We have currrently implemented two Autoencoders:
+- [x] [Vanilla Autoencoder](vanilla/README.md) on MNIST dataset.
+- [x] [Denoising Autoencoder](denoise/README.md) on MNIST dataset.
+- [x] [Sparse Autoencoder](sparse/README.md) on MNIST dataset.
+- [ ] Contractive Autoencoder
+- [ ] Variational Autoencoder
+
+### Contributors: 
+* [Pulkit Mathur](https://github.com/mathurpulkit)
+* [Atharva Kathale](https://github.com/Atharva-K12)
+* [Appari Shanti](https://github.com/AppariShanti)
+* [Sibam Parida](https://github.com/sibam23)
+* [Sushant Jha](https://github.com/sushantjha78)
+* [Vignesh Srinivas](https://github.com/vignesh-creator)
+* [Kalyani Sainis](https://github.com/Kals-13)
+* [Khurshed Fitter](https://github.com/GlazeDonuts)
