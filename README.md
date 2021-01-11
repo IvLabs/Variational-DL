@@ -17,4 +17,5 @@ We have currrently implemented two Autoencoders:
 * [Sushant Jha](https://github.com/sushantjha78)
 * [Vignesh Srinivas](https://github.com/vignesh-creator)
 * [Kalyani Sainis](https://github.com/Kals-13)
+* [Rishika Bhagwatkar](https://github.com/rishika2110)
 * [Khurshed Fitter](https://github.com/GlazeDonuts)
