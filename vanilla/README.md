@@ -19,6 +19,7 @@ We have implemented the Vanilla Autoencoder using PyTorch. You need to install t
 * pytorch(for model training)
 * matplotlib(for plotting graphs and images)
 * tqdm(for showing progress bars)
+* numpy(for displaying images)
 
 Our model has already been trained on the MNIST dataset. To run our code, Open Terminal and navigate to this directory and run:
 ```
