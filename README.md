@@ -7,7 +7,7 @@ We have currrently implemented five Autoencoders:
 - [x] [Denoising Autoencoder](autoencoders/denoise) on MNIST dataset.
 - [x] [Sparse Autoencoder](autoencoders/sparse) on MNIST dataset.
 - [x] [Contractive Autoencoder](autoencoders/contractive) on MNIST dataset.
-- [x] [Variational Autoencoder](autoencoders/VAE) on MNIST dataset. Using RESNET
+- [x] [Variational Autoencoder](autoencoders/VAE) on MNIST dataset. Using ResNet
 
 ### Contributors: 
 * [Pulkit Mathur](https://github.com/mathurpulkit)
