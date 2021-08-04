@@ -21,3 +21,4 @@ We have currrently implemented five Autoencoders:
 * [Kalyani Sainis](https://github.com/Kals-13)
 * [Rishika Bhagwatkar](https://github.com/rishika2110)
 * [Khurshed Fitter](https://github.com/GlazeDonuts)
+* [Saketh Bachu](https://github.com/sakethbachu)
