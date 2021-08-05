@@ -9,6 +9,8 @@ We have currrently implemented five Autoencoders:
 - [x] [Contractive Autoencoder](autoencoders/contractive) on MNIST dataset.
 - [x] [Variational Autoencoder](autoencoders/VAE) on MNIST dataset. Using ResNet
 
+<hr />
+
 ### Contributors: 
 * [Pulkit Mathur](https://github.com/mathurpulkit)
 * [Atharva Kathale](https://github.com/Atharva-K12)
@@ -19,3 +21,4 @@ We have currrently implemented five Autoencoders:
 * [Kalyani Sainis](https://github.com/Kals-13)
 * [Rishika Bhagwatkar](https://github.com/rishika2110)
 * [Khurshed Fitter](https://github.com/GlazeDonuts)
+* [Saketh Bachu](https://github.com/sakethbachu)
