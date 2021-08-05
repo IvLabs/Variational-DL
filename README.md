@@ -7,7 +7,7 @@ We have currrently implemented five Autoencoders:
 - [x] [Denoising Autoencoder](denoise)
 - [x] [Sparse Autoencoder](sparse)
 - [x] [Contractive Autoencoder](contractive)
-- [x] [Variational Autoencoder](VAE) using ResNet.
+- [x] [Variational Autoencoder](VAE)
 
 All the models have been benchmarked on the MNIST dataset.
 
