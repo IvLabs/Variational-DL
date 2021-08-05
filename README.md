@@ -7,7 +7,7 @@ We have currrently implemented five Autoencoders:
 - [x] [Vanilla Autoencoder](autoencoders/vanilla)
 - [x] [Denoising Autoencoder](autoencoders/denoise)
 - [x] [Sparse Autoencoder](autoencoders/sparse)
-- [x] [Contractive Autoencoder](autoencoders/contrastive)
+- [x] [Contractive Autoencoder](autoencoders/contractive)
 - [x] [Variational Autoencoder](autoencoders/VAE)
 
 All the models have been benchmarked on the MNIST dataset.
