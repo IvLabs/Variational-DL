@@ -4,11 +4,11 @@ Variational Deep Learning is a method of deep learning where we use Neural Netwo
 
 We have currrently implemented five Autoencoders:
 =======
-- [x] [Vanilla Autoencoder](vanilla)
-- [x] [Denoising Autoencoder](denoise)
-- [x] [Sparse Autoencoder](sparse)
-- [x] [Contractive Autoencoder](contractive)
-- [x] [Variational Autoencoder](VAE)
+- [x] [Vanilla Autoencoder](autoencoders/vanilla)
+- [x] [Denoising Autoencoder](autoencoders/denoise)
+- [x] [Sparse Autoencoder](autoencoders/sparse)
+- [x] [Contractive Autoencoder](autoencoders/contrastive)
+- [x] [Variational Autoencoder](autoencoders/VAE)
 
 All the models have been benchmarked on the MNIST dataset.
 
