@@ -25,3 +25,4 @@ All the models have been benchmarked on the MNIST dataset.
 * [Rishika Bhagwatkar](https://github.com/rishika2110)
 * [Khurshed Fitter](https://github.com/GlazeDonuts)
 * [Saketh Bachu](https://github.com/sakethbachu)
+* [Siddharth Singh](https://github.com/SIDDXSingh)
