@@ -10,6 +10,7 @@ We have currrently implemented five Autoencoders:
 - [x] [Contractive Autoencoder](autoencoders/contractive)
 - [x] [Variational Autoencoder](autoencoders/VAE)
 - [x] [Deep Convolutional Generative Adversarial Network](gans/DCGAN)
+- [x] [conditional Generative Adversarial Network](gans/CGAN)
 
 All the models have been benchmarked on the MNIST dataset.
 
