@@ -39,7 +39,7 @@ Discriminative loss plot
 
 ![](https://i.imgur.com/GTPR6ZZ.png)
 
-Generative Loss plot
+Generative loss plot
 
 ![](https://i.imgur.com/ekrfQFL.png)
 
