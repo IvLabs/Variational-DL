@@ -43,7 +43,23 @@ Generative Loss plot
 
 ![](https://i.imgur.com/ekrfQFL.png)
 
+### Calculation of FID score:
 
->The model achieved an FID score is 74.12
+To calculate FID score, first you need to install FID library
+
+```
+pip install pytorch-fid
+```
+
+After installing, open FID.py file and edit the location .This location is required to store the original and generated images seperately (check the code for more information). After running FID.py file, make sure that the images are stored in their respective paths.
+
+After storing the images, open your terminal and run
+
+```
+python -m pytorch_fid path/to/dataset1 path/to/dataset2
+```
+(Order doesn't matter. Your dataset1 can either be real images or generated images.)
+
+>The model achieved an FID score is 70.63
 
 
