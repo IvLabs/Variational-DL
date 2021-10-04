@@ -35,11 +35,11 @@ Below are original images from the dataset and cGAN generated images.
 
 ![](https://i.imgur.com/J2Xg6mq.png)
 
-Discriminative loss plot:
+Discriminative loss plot
 
 ![](https://i.imgur.com/GTPR6ZZ.png)
 
-Generative loss plot:
+Generative loss plot
 
 ![](https://i.imgur.com/ekrfQFL.png)
 
