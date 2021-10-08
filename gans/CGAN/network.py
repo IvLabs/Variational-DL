@@ -50,7 +50,7 @@ class Generator(nn.Module):
         '''
         nn.Embedding layer is simply a linear layer. Coming to the below line, it considers one hot encoding of the corresponding
         label(length of vector = number of classes) and picks up the index of non-zero number in the vector and performs linear operation.
-        To be more precise, it works same as that of fc layer but only difference is that it is not learnable.
+        To be more precise, it works same as that of fc layer.
         '''
         self.fc = nn.Embedding(self.num_classes,self.initial_img_size*self.initial_img_size)
     
