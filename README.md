@@ -2,7 +2,7 @@
 
 Variational Deep Learning is a method of deep learning where we use Neural Networks to generate data, instead of drawing conclusions from it.
 
-We have currrently implemented five Autoencoders:
+We have currrently implemented the following Autoencoders and Generative Adversarial Networks:
 
 - [x] [Vanilla Autoencoder](autoencoders/vanilla)
 - [x] [Denoising Autoencoder](autoencoders/denoise)
